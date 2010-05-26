@@ -4,6 +4,11 @@ class MessagesController < ApplicationController
     @message = Message.new
   end
   
+  def create
+    Message.create(params[:message])
+    redirect_to :action => :index
+  end
+  
   private
   
   def logged_in_user
