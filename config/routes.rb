@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :user_sessions
   map.root :controller => "messages"
+  map.resources :messages
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -1,2 +1,8 @@
 <h1>Welcome to Squeaker</h1>
 <p>hello <%= @logged_in_user.username %></p>
+
+<% form_for(@message) do |form| %>
+  <%= form.label :content, "Message" %>
+  <%= form.text_field :content %>
+  <%= form.submit "Post" %>
+<% end %>
