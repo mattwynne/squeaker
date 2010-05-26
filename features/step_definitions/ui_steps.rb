@@ -16,12 +16,28 @@ end
 
 World(ContentAssertions)
 
+module LoginHelper
+  def log_in_as(username)
+    visit user_sessions_path
+    fill_in "Username", :with => username
+    click_button "Log in"
+    assert_content("hello #{username}")
+    @logged_in_user = User.find_by_username(username)
+  end
+  
+  def logged_in_user
+    @logged_in_user
+  end
+end
+
+World(LoginHelper)
+
 Given /^I am logged in as the User$/ do
-  user = User.first
-  visit user_sessions_path
-  fill_in "Username", :with => user.username
-  click_button "Log in"
-  assert_content("hello #{user.username}")
+  log_in_as(the_user.username)
+end
+
+Given /^I am logged in as "([^\"]*)"$/ do |username|
+  log_in_as(username)
 end
 
 When /^I visit the homepage$/ do
@@ -56,4 +72,12 @@ Then /^I should see a link to the page of each of these Users:$/ do |table|
     expected_url = user_path(username)
     assert_xpath "//a[@href='#{expected_url}']"
   end
+end
+
+Then /^I should be following "([^\"]*)"$/ do |other_username|
+  other_user = User.find_by_username(other_username) || raise("No user with username '#{other_username}' found")
+  assert(
+    logged_in_user.following?(other_user),
+    "#{logged_in_user.username} is not following #{other_username}. I know because I asked him."
+  )
 end

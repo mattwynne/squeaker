@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def follow(other_user)
     # TODO
   end
+  
+  def following?(other_user)
+    # TODO
+  end
 end
