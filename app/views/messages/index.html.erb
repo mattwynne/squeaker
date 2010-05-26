@@ -6,3 +6,9 @@
 	<%= form.text_field :content %>
 	<%= form.submit "Post" %>
 <% end%>
+
+<table>
+	<% Message.find_all_by_user_id(@logged_in_user.id).each do |message| %>
+		<tr><td><%= @logged_in_user.username%>:</td><td><%=h message.content %></td></tr>
+	<% end %>
+</table>

@@ -13,3 +13,7 @@ end
 When /^I visit the homepage$/ do
   visit root_path
 end
+
+Then /^I should see "([^\"]*)" in my feed$/ do |arg1|
+  assert page.has_content?(arg1), "Message '#{arg1}' not in the feed as expected"
+end
