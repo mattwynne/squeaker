@@ -8,3 +8,7 @@ Given /^I am logged in as the User$/ do
     raise("Page didn't contain expected text")
   end
 end
+
+When /^I visit the homepage$/ do
+  visit root_path
+end
