@@ -8,8 +8,8 @@
   <%= form.submit "Post" %>
 <% end %>
 
-<ul>
+<ul id="messages">
   <% @messages.each do |message| %>
-    <li><%= message.content %></li>
+    <li class="message"><%= message.content %></li>
   <% end %>
 </ul>
