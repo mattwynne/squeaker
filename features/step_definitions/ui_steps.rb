@@ -12,3 +12,11 @@ end
 When /^I visit the homepage$/ do
   visit root_path
 end
+
+Then /^I should see "([^\"]*)" in my feed$/ do |expected_text|
+  sleep 10
+  unless page.has_content?(expected_text)
+    save_and_open_page
+    raise("I want to see #{expected_text}")
+  end
+end

@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   def index
     @logged_in_user = logged_in_user
     @message = Message.new(:user_id => logged_in_user.id)
+    @messages = @logged_in_user.messages
   end
   
   def create

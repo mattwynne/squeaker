@@ -7,3 +7,9 @@
   <%= form.text_field :content %>
   <%= form.submit "Post" %>
 <% end %>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li><%= message.content %></li>
+  <% end %>
+</ul>
