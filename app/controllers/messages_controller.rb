@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   def index
     @logged_in_user = logged_in_user
+    @message = Message.new
   end
   
   private
