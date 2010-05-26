@@ -1,4 +1,3 @@
-@javascript
 Feature: Post message
   In order to share my thoughts
   As a user
