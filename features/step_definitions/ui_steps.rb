@@ -9,3 +9,7 @@ Given /^I am logged in as the User$/ do
     raise "Ouch!!"
   end
 end
+
+When /^I visit the homepage$/ do
+  visit root_path
+end
