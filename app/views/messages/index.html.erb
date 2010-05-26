@@ -3,6 +3,7 @@
 
 <% form_for(@message) do |form| %>
   <%= form.label :content, "Message" %>
+  <%= form.hidden_field :user_id %>
   <%= form.text_field :content %>
   <%= form.submit "Post" %>
 <% end %>
