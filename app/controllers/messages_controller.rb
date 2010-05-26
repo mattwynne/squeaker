@@ -14,6 +14,6 @@ class MessagesController < ApplicationController
   
   def logged_in_user
     user_id = session[:logged_in_user_id]
-    User.find_by_id(user_id)
+    User.find_by_id(user_id) || User.unknown
   end
 end
