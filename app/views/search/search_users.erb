@@ -1,0 +1,13 @@
+<% @users.each do |user| %>
+	<table>
+		<tr>
+			<td><%= user.username %></td>
+			<td>
+				<% form_tag follow_path do %>
+					<%= hidden_field_tag :user_id => user.id %>
+					<%= submit_tag "Follow" %>
+				<% end %>
+			</td>
+		</tr>
+	</table>
+<% end %>

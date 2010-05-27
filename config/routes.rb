@@ -2,6 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :user_sessions
   map.root :controller => "messages"
   map.resources :messages
+  map.search "search", :controller => "search", :action => "search_users"
+  map.follow "follow", :controller => "users", :action => "follow"
   
   # The priority is based upon order of creation: first created -> highest priority.
 
