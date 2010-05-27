@@ -1,7 +1,7 @@
 Feature: See users followers
   In order to explore the site
   As a visitor to a user's page
-  I want to see who that user is following
+  I want to see who is following that user
 
   Scenario: One User being followed be 2 other users
     Given there are these Users:
