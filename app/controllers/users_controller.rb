@@ -7,4 +7,7 @@ class UsersController < ApplicationController
     logged_in_user.save
     redirect_to :controller => :messages, :action => :index
   end
+
+  def show
+  end
 end

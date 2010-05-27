@@ -14,4 +14,18 @@ class User < ActiveRecord::Base
     followed.each {|f| feed.concat f.messages}
     return feed.sort {|a,b| a.created_at <=> b.created_at}
   end
+
+  # Class method to return a null object representing an unknown
+  # (i.e. not logged in) User
+  def self.unknown
+    new(:username => 'stranger')
+  end
+  
+  def follow(other_user)
+    # TODO
+  end
+  
+  def following?(other_user)
+    # TODO
+  end
 end
