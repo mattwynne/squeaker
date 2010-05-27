@@ -3,7 +3,7 @@ Feature: See users followers
   As a visitor to a user's page
   I want to see who is following that user
 
-  Scenario: One User being followed be 2 other users
+  Scenario: One User being followed by 2 other users
     Given there are these Users:
       | matt  |
       | tony  |
