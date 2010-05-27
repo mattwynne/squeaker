@@ -1,5 +1,5 @@
 <h1>Welcome to Squeaker</h1>
-<p>hello <%= @logged_in_user.username %></p>
+<p>hello <%= link_to @logged_in_user.username, user_path(@logged_in_user.id) %></p>
 
 <% form_for(@message) do |form| %>
 	<%= form.label :content, "Message" %>
@@ -16,18 +16,13 @@
 
 <% if @logged_in_user.followed_users.count > 0 %>
 	<h2>People I follow</h2>
+	<%= user_list(@logged_in_user.followed_users, 'followed_users') %>
 <% end %>
-
-<table>
-	<% @logged_in_user.followed_users.each do |followed| %>
-		<tr><td><%= followed.username %></td></tr>
-	<% end %>
-</table>
 
 <h2>Messages</h2>
 <table>
 	<% @feed.each do |message| %>
-		<tr><td><%= message.user.username%>:</td><td><%=h message.content %></td></tr>
+		<tr><td><%= link_to message.user.username, user_path(message.user.id)%>:</td><td><%=h message.content %></td></tr>
 	<% end %>
 </table>
 

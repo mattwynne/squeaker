@@ -1,7 +1,6 @@
 <h1><%= @user.username %></h1>
+<p>I'm followed by:</p>
+<%= user_list(@user.followers, 'followers')%>
+	
 <p>I'm following:</p>
-<ul>
-	<% @user.followed_users.each do |u| %>
-		<li><%= u.username %></li>
-	<% end %>
-</ul>
+<%= user_list(@user.followed_users, 'followed_users')%>

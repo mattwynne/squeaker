@@ -79,7 +79,8 @@ end
 Then /^I should see a link to the page of each of these Users:$/ do |table|
   table.raw.each do |row|
     username = row[0]
-    expected_url = user_path(username)
+    # expected_url = user_path(username)
+    expected_url = user_path(User.find_by_username(username))
     assert_xpath "//a[@href='#{expected_url}']"
   end
 end

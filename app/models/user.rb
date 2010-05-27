@@ -7,6 +7,16 @@ class User < ActiveRecord::Base
     :foreign_key => 'follower_id',
     :association_foreign_key => "followed_id")
   
+  has_and_belongs_to_many(:followers,
+    :class_name => "User",
+    :join_table => "followers",
+    :foreign_key => 'followed_id',
+    :association_foreign_key => "follower_id")
+    
+  def to_param
+    username
+  end
+
   # All messages in the feed
   def feed
     feed = Array.new
@@ -22,10 +32,14 @@ class User < ActiveRecord::Base
   end
   
   def follow(other_user)
-    # TODO
+    followed_users << other_user
+  end
+  
+  def followed_by?(other_user)
+    followers.include?(other_user)
   end
   
   def following?(other_user)
-    # TODO
+    followed_users.include?(other_user)
   end
 end
