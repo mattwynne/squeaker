@@ -9,14 +9,24 @@
 <% end%>
 
 <% form_tag(search_path :method => "get") do %>
-	<%= label_tag :query, "Search:" %>
+	<%= label_tag :query, "Find users:" %>
 	<%= text_field_tag :query %>
 	<%= submit_tag "Search" %>
 <% end %>
 
+<% if @logged_in_user.followed.count > 0 %>
+	<h2>People I follow</h2>
+<% end %>
 
 <table>
-	<% @messages.each do |message| %>
-		<tr><td><%= @logged_in_user.username%>:</td><td><%=h message.content %></td></tr>
+	<% @logged_in_user.followed.each do |followed| %>
+		<tr><td><%= followed.username %></td></tr>
+	<% end %>
+</table>
+
+<h2>Messages</h2>
+<table>
+	<% @feed.each do |message| %>
+		<tr><td><%= message.user.username%>:</td><td><%=h message.content %></td></tr>
 	<% end %>
 </table>

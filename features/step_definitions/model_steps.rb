@@ -3,5 +3,5 @@ Given /^there is a User$/ do
 end
 
 Given /^there is "([^\"]*)" User$/ do |username|
-  User.create(:username => "username")
+  User.create(:username => username)
 end

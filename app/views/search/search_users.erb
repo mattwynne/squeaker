@@ -4,7 +4,7 @@
 			<td><%= user.username %></td>
 			<td>
 				<% form_tag follow_path do %>
-					<%= hidden_field_tag :user_id => user.id %>
+					<%= hidden_field_tag :user_id, user.id %>
 					<%= submit_tag "Follow" %>
 				<% end %>
 			</td>

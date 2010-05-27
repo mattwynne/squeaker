@@ -18,16 +18,14 @@ Then /^I should see "([^\"]*)" in my feed$/ do |arg1|
   assert page.has_content?(arg1), "Message '#{arg1}' not in the feed as expected"
 end
 
-When /^I search for another User$/ do
-  fill_in "Search", :with => "otheruser"
-  click_button "Search"
-end
-
 When /^I search for "([^\"]*)" User$/ do |username|
-  fill_in "Search", :with => "username"
+  fill_in "Find users", :with => "username"
   click_button "Search"
 end
 
 Then /^I should see "([^\"]*)" User in my followed list$/ do |username|
-  pending # express the regexp above with the code you wish you had
+  unless page.has_content?("People I follow") and page.has_content?(username)
+    save_and_open_page
+    raise "Followed user is not there"
+  end
 end
