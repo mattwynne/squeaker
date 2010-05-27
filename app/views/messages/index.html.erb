@@ -8,8 +8,4 @@
   <%= form.submit "Post" %>
 <% end %>
 
-<ul id="messages">
-  <% @messages.each do |message| %>
-    <li class="message"><%= message.content %></li>
-  <% end %>
-</ul>
+<%= render :partial => 'messages' %>
