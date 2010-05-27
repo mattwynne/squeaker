@@ -14,12 +14,12 @@
 	<%= submit_tag "Search" %>
 <% end %>
 
-<% if @logged_in_user.followed.count > 0 %>
+<% if @logged_in_user.followed_users.count > 0 %>
 	<h2>People I follow</h2>
 <% end %>
 
 <table>
-	<% @logged_in_user.followed.each do |followed| %>
+	<% @logged_in_user.followed_users.each do |followed| %>
 		<tr><td><%= followed.username %></td></tr>
 	<% end %>
 </table>

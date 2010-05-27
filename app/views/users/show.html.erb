@@ -1,2 +1,7 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.username %></h1>
+<p>I'm following:</p>
+<ul>
+	<% @user.followed_users.each do |u| %>
+		<li><%= u.username %></li>
+	<% end %>
+</ul>
