@@ -1,17 +1,8 @@
-<h1>Welcome to Squeaker</h1>
-<p>hello <%= link_to @logged_in_user.username, user_path(@logged_in_user.id) %></p>
-
 <% form_for(@message) do |form| %>
-	<%= form.label :content, "Message" %>
+	<%= form.label :content, "Squeak something!" %>
 	<%= form.text_field :content %>
 	<%= form.hidden_field :user_id %>
 	<%= form.submit "Post" %>
-<% end%>
-
-<% form_tag(search_path :method => "get") do %>
-	<%= label_tag :query, "Find users:" %>
-	<%= text_field_tag :query %>
-	<%= submit_tag "Search" %>
 <% end %>
 
 <% if @logged_in_user.followed_users.count > 0 %>
@@ -19,11 +10,11 @@
 	<%= user_list(@logged_in_user.followed_users, 'followed_users') %>
 <% end %>
 
-<h2>Messages</h2>
-<table>
-	<% @feed.each do |message| %>
-		<tr><td><%= link_to message.user.username, user_path(message.user.id)%>:</td><td><%=h message.content %></td></tr>
-	<% end %>
-</table>
-
-<%= render :partial => 'messages' %>
+<% if @feed.any? %>
+  <h2>Messages</h2>
+  <table>
+  	<% @feed.each do |message| %>
+  		<tr><td><%= link_to message.user.username, user_path(message.user.id)%>:</td><td><%=h message.content %></td></tr>
+  	<% end %>
+  </table>
+<% end %>

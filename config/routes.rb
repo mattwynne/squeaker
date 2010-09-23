@@ -5,6 +5,9 @@ ActionController::Routing::Routes.draw do |map|
   map.search "search", :controller => "search", :action => "search_users"
   map.follow "follow", :controller => "users", :action => "follow"
   map.resources :users
+  
+  map.reset "reset", :controller => "resets", :action => "create"
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

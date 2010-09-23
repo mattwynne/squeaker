@@ -12,9 +12,15 @@ class User < ActiveRecord::Base
     :join_table => "followers",
     :foreign_key => 'followed_id',
     :association_foreign_key => "follower_id")
-    
+  
+  validates_uniqueness_of :username
+  
   def to_param
     username
+  end
+  
+  def unknown?
+    username == "stranger"
   end
 
   # All messages in the feed
@@ -33,6 +39,10 @@ class User < ActiveRecord::Base
   
   def follow(other_user)
     followed_users << other_user
+  end
+  
+  def unfollow(other_user)
+    followers.remove(other_user)
   end
   
   def followed_by?(other_user)

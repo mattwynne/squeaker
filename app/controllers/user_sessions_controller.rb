@@ -10,7 +10,7 @@ class UserSession
 end
 
 class UserSessionsController < ApplicationController
-  def index
+  def new
     @user_session = UserSession.new
   end
   
@@ -21,6 +21,11 @@ class UserSessionsController < ApplicationController
       raise("No user with username '#{username}'")
     end
     session[:logged_in_user_id] = user.id
+    redirect_to root_path
+  end
+  
+  def delete
+    session[:logged_in_user_id] = nil
     redirect_to root_path
   end
 end

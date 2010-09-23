@@ -1,6 +1,18 @@
 <h1><%= @user.username %></h1>
 <p>I'm followed by:</p>
-<%= user_list(@user.followers, 'followers')%>
-	
+<%= user_list(@user.followers, 'followers') %>
+
 <p>I'm following:</p>
 <%= user_list(@user.followed_users, 'followed_users')%>
+
+<% if @user.messages.any? %>
+  <h2>Messages</h2>
+  <table>
+    <% @user.messages.each do |message| %>
+      <tr>
+        <td><%= link_to message.user.username, user_path(message.user)%>:</td>
+        <td><%=h message.content %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

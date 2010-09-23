@@ -9,6 +9,26 @@
 </head>
 <body>
 
+  <div id="header">
+    <h1><%= link_to "Squeaker", root_path %></h1>
+
+    <% unless @logged_in_user.unknown? %>
+      Hello <%= link_to @logged_in_user.username, user_path(@logged_in_user.username) %>
+      <%= button_to "Log Out", { :action => :delete, :controller => :user_sessions } %>
+    <% else %>
+      Hello stranger!
+      Why not <%= link_to "log in", new_user_session_path %> or perhaps <%= link_to "create an account", new_user_path %>?
+    <% end %>
+    
+    <% form_tag(search_path :method => "get") do %>
+    	<%= label_tag :query, "Find users:" %>
+    	<%= text_field_tag :query %>
+    	<%= submit_tag "Search" %>
+    <% end %>
+    
+  <div>
+  <hr/>
+
 <%= yield %>
 
 </body>
