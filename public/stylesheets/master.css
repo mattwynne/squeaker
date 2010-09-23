@@ -1,3 +1,67 @@
 body {
   font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  background-color: #eee;
+}
+
+#header {
+  width: 800px;
+  background-color: #0f0;
+  border: 0px;
+  margin: 0 auto 0;
+  height: 80px;
+}
+
+#header-wrapper {
+  background-color: #0f0;
+  border: 0px;
+}
+
+#header-content {
+  float: right;
+}
+
+#logo {
+  float: left;
+}
+
+#main {
+  width: 800px;
+  margin: 0 auto 15;
+  background-color: white;
+  padding: 5px;
+  min-height: 400px;
+}
+
+#header ul li {
+  list-style-type: none;
+  text-align: right;
+  padding: 4px;
+}
+
+#footer {
+  text-align: center;
+  background-color: black;
+  height: 100px;
+  padding-top: 30px;
+  width: 100%;
+}
+
+#footer a {
+  padding: 30px;
+}
+
+li div {
+  display: inline;
+}
+
+form {
+  display: inline;
+}
+
+h2 {
+  display: block;
+  background-color: #ddd;
+  padding-left: 10;
 }
