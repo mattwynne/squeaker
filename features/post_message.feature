@@ -4,9 +4,8 @@ Feature: Post message
   I want to post messages
 
   Scenario: Existing User posts a message
-    Given there is a User
-    And I am logged in as the User
+    And I am logged in
     When I visit the homepage
-    And I fill in "Message" with "Hello World"
-    And I press "Post"
+    And I fill in "Squeak something!" with "Hello World"
+    And I press "Squeak"
     Then I should see "Hello World" in my feed

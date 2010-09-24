@@ -11,6 +11,3 @@ Feature: Follow other users
     When I go to the page for the User "tony"
     And I press "Follow"
     Then I should be following "tony"
-
-  
-  

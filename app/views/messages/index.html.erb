@@ -13,9 +13,9 @@
 
 <% if @feed.any? %>
   <h2>Messages</h2>
-  <table>
-  	<% @feed.each do |message| %>
-  		<tr><td><%= link_to message.user.username, user_path(message.user.id)%>:</td><td><%=h message.content %></td></tr>
-  	<% end %>
-  </table>
+  <ul id="messages">
+    <% @feed.each do |message| %>
+    <li class="message"><%= link_to message.user.username, user_path(message.user.id)%>:</td><td><%=h message.content %></li>
+    <% end %>
+  </ul>
 <% end %>
