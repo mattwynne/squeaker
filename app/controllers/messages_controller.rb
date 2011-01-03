@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
   
   def create
     Message.create! params[:message]
-    redirect_to :action => :index
+    redirect_to :action => :index, :status => 303
   end
 
 private
