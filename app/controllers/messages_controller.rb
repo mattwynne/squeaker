@@ -7,7 +7,8 @@ class MessagesController < ApplicationController
     @feed = user.feed
     
     respond_to do |format|
-      format.xml { render :xml => @messages.to_xml }
+      format.xml  { render :xml => @messages.to_xml  }
+      format.json { render :xml => @messages.to_json }
       format.html
     end
   end

@@ -18,5 +18,4 @@ Then /^I should get XML that matches the following XPath statements:$/ do |table
   end
 end
 
-
 Before { get '/reset' }
