@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  # protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :set_logged_in_user
 
   # Scrub sensitive parameters from your log
