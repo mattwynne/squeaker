@@ -1,3 +1,4 @@
+
 <p>Squeaker is all about sharing every little inane thought you have with the world. Don't be shy!</p>
 <% form_for(@message) do |form| %>
 	<%= form.label :content, "Squeak something!" %>
@@ -15,7 +16,7 @@
   <h2>Messages</h2>
   <ul id="messages">
     <% @feed.each do |message| %>
-    <li class="message"><%= link_to message.user.username, user_path(message.user.id)%>:</td><td><%=h message.content %></li>
+    <li class="message"><%= link_to message.user.username, user_path(message.user.username)%>:</td><td><%=h message.content %></li>
     <% end %>
   </ul>
 <% end %>
