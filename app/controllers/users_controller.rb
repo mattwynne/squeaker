@@ -19,6 +19,6 @@ class UsersController < ApplicationController
   def create
     new_user = User.create!(params[:user])
     session[:logged_in_user_id] = new_user.id
-    redirect_to root_path
+    redirect_to root_path, :status => 303
   end
 end
