@@ -1,19 +1,10 @@
-ENV["RAILS_ENV"] ||= "test"
-require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
+require 'rubygems'
+require 'capybara/dsl'
+require 'test/unit/assertions'
 
-require 'rack/test'
-require 'nokogiri'
+Capybara.default_driver = :selenium
+Capybara.app_host = 'http://squeaker.heroku.com'
+# Capybara.app_host = 'http://localhost:3000'
 
-class SqueakerWorld
-  def app
-    ActionController::Dispatcher.new
-  end
-  
-  def last_xml
-    Nokogiri.parse(last_response.body)
-  end
-end
-
-World { SqueakerWorld.new }
-
-World(Rack::Test::Methods)
+World(Capybara::DSL)
+World(Test::Unit::Assertions)
