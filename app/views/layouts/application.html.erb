@@ -15,7 +15,7 @@
           <ul>
             <li>
               <% unless @logged_in_user.unknown? %>
-                Hello <%= link_to @logged_in_user.username, user_path(@logged_in_user.username) %>
+                Hello you're logged in
                 <%= button_to "Log Out", user_session_path, :method => :delete %>
               <% else %>
                 Hello stranger!
