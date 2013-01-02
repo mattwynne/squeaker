@@ -5,3 +5,6 @@ gem 'sqlite3'
 gem 'capybara'
 gem 'cucumber'
 gem 'rspec'
+gem 'watir'
+gem 'rest-client'
+
