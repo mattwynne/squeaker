@@ -1,11 +1,13 @@
 class UserSession
+  extend ActiveModel::Naming
+  include ActiveModel::Conversion
   attr_accessor :username
   
   def id
   end
-  
-  def new_record?
-    true
+
+  def persisted?
+    false
   end
 end
 

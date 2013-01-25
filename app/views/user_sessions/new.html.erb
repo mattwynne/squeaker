@@ -1,7 +1,7 @@
 <p>
   We're not too hot on security here at Squeaker, Inc. We trust you!
 </p>
-<% form_for(@user_session, :url => user_session_path) do |form| %>
+<%= form_for(@user_session, :url => user_session_path) do |form| %>
   <%= form.label :username, "Username" %>
   <%= form.text_field :username %>
   <%= form.submit "Log in" %>
