@@ -2,6 +2,6 @@
 
 # Your secret key for verifying the integrity of signed cookies.
 # If you change this key, all old signed cookies will become invalid!
-# Make sure the secret is at least 30 characters and all random, 
+# Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-ActionController::Base.cookie_verifier_secret = '4dbb72d8374c1a94b15528150a04bed753eb7575ba7e864afb253d8dd56994185c322a6ada6270c261c5d9df321ec9322ebd61f874988586f6298add473c7ee5';
+Squeaker::Application.config.secret_token = 'dd945a3c6dec42c4bfccdb62e5ba1c755a1776e69258978c136e55f937835ab745c82efdc6b62eab04d1d5f35d723673e1bd20829d193aa640eff0b61c77a3ec'
