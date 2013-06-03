@@ -1,21 +1,11 @@
-Given /^a User "([^"]*)"$/ do |username|
-  User.create! :username => username
+Given /^I am not logged in$/ do
+  # of course you're not logged in!
 end
 
-Given /^the User has \d+ Messages:$/ do |table|
-  table.raw.flatten.each do |content|
-    User.first.messages.create! :content => content
-  end
+When /^I visit the homepage$/ do
+  visit '/'
 end
 
-When /^I make a GET request to "([^"]*)"$/ do |url|
-  get url
+Then /^I should see "(.*?)"$/ do |expected_text|
+  page.should have_content(expected_text)
 end
-
-Then /^I should get XML that matches the following XPath statements:$/ do |table|
-  table.raw.flatten.each do |xpath|
-    last_xml.xpath(xpath).should_not be_empty, "Can't find XPath: #{xpath} in:\n#{last_xml}"
-  end
-end
-
-Before { get '/reset' }

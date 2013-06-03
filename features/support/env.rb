@@ -1,19 +1,8 @@
-ENV["RAILS_ENV"] ||= "test"
-require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
+require 'capybara/cucumber'
 
-require 'rack/test'
-require 'nokogiri'
+Capybara.app_host = 'http://localhost:3000'
+Capybara.default_driver = :selenium
 
-class SqueakerWorld
-  def app
-    ActionController::Dispatcher.new
-  end
-  
-  def last_xml
-    Nokogiri.parse(last_response.body)
-  end
+Before do
+  visit '/reset'
 end
-
-World { SqueakerWorld.new }
-
-World(Rack::Test::Methods)
