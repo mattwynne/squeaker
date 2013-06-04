@@ -12,7 +12,6 @@ group :development, :test do
   gem "sqlite3", :require => "sqlite3"
   gem 'capybara'
   gem 'cucumber'
-  gem 'rspec-expectations'
 end
 
 # in production environments by default.
