@@ -7,10 +7,10 @@ class UserSessionsController < ApplicationController
     username = params[:user_session][:username]
     user = User.find_by_username(username)
     unless user
-      raise("No user with username '#{username}'")
+      flash[:error] = "No user with username '#{username}'"
+    else
+      session[:logged_in_user_id] = user.id
     end
-    session[:logged_in_user_id] = user.id
-
     redirect_to root_path, :status => 303
   end
 

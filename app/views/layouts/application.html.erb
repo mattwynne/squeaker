@@ -34,6 +34,9 @@
       </div>
     </div>
     <div id="main">
+      <% if flash.key?(:error) %>
+        <p style="background-color:red; color: white;"><%= flash[:error] %></p>
+      <% end %>
       <%= yield %>
     </div>
     <div id="footer">

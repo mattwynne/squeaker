@@ -62,6 +62,10 @@ When(/^I log in as "(.*?)"$/) do |username|
   log_in_as username
 end
 
+When(/^I try to log in as "(.*?)"$/) do |username|
+  log_in_as username
+end
+
 When(/^I go to the page for the User "(.*?)"$/) do |username|
   visit user_path(username)
 end
@@ -97,7 +101,7 @@ Then(/^I should see exactly (\d+) messages and no more$/) do |num|
   all('.message').count.should == num.to_i
 end
 
-Then(/^I am logged in$/) do
+Given(/^I am logged in$/) do
   user = create_user
   log_in_as user.username
 end
