@@ -13,12 +13,12 @@
 
         <div id="header-content">
           <ul>
-            <li>
+            <li class="greeting">
               <% unless @logged_in_user.unknown? %>
                 Hello <%= link_to @logged_in_user.username, user_path(@logged_in_user.username) %>
                 <%= button_to "Log Out", user_session_path, :method => :delete %>
               <% else %>
-                Hello stranger!
+                Hello there!
                 Why not <%= link_to "log in", new_user_session_path %> or perhaps <%= link_to "create an account", new_user_path %>?
               <% end %>
             </li>

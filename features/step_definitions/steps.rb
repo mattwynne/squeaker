@@ -6,6 +6,6 @@ When /^I visit the homepage$/ do
   visit '/'
 end
 
-Then /^I should see "(.*?)"$/ do |expected_text|
-  page.should have_content(expected_text)
+Then /^I should see the greeting "(.*?)"$/ do |expected_text|
+  find('.greeting').should have_content(expected_text)
 end
