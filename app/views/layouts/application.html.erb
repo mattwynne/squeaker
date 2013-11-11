@@ -2,7 +2,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>Squeaker</title>
-    <%= stylesheet_link_tag 'master' %>
+    <%= stylesheet_link_tag 'application' %>
   </head>
   <body>
     <div id="header-wrapper">
@@ -13,17 +13,17 @@
 
         <div id="header-content">
           <ul>
-            <li>
+            <li class="greeting">
               <% unless @logged_in_user.unknown? %>
                 Hello you're logged in
                 <%= button_to "Log Out", user_session_path, :method => :delete %>
               <% else %>
-                Hello stranger!
+                Hello there!
                 Why not <%= link_to "log in", new_user_session_path %> or perhaps <%= link_to "create an account", new_user_path %>?
               <% end %>
             </li>
             <li>
-              <% form_tag(search_path :method => "get") do %>
+              <%= form_tag(search_path :method => "get") do %>
               	<%= label_tag :query, "Find users:" %>
               	<%= text_field_tag :query %>
               	<%= submit_tag "Search" %>

@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
   def self.unknown
     new(:username => 'stranger')
   end
+
+  def post_message(content)
+    messages.create! content: content
+  end
   
   def follow(other_user)
     followed_users << other_user
