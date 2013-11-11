@@ -78,65 +78,8 @@ When(/^I visit the homepage$/) do
   visit '/'
 end
 
-When(/^I search for the user "(.*?)"$/) do |username|
-  fill_in 'Find users', with: username
-  click_button 'Search'
-end
-
-Then(/^I should see "(.*?)" User in my followed list$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should see the latest (\d+) messages$/) do |num|
-  expected = Message.limit(num.to_i).order(:created_at).map(&:content)
-  actual = all('.message').map(&:text).map(&:strip)
-  actual.should == expected
-end
-
-Then(/^I should see exactly (\d+) messages and no more$/) do |num|
-  all('.message').count.should == num.to_i
-end
-
-Then(/^I am logged in$/) do
-  user = create_user
-  log_in_as user.username
-end
-
-When(/^I fill in "(.*?)" with "(.*?)"$/) do |field, value|
-  fill_in field, with: value
-end
-
-Then(/^I should see "(.*?)" in my feed$/) do |expected_text|
-  within('#messages') do
-    page.should have_content(expected_text)
-  end
-end
-
-Given(/^"(.*?)" is following "(.*?)"$/) do |follower, followed|
-  user_named(follower).follow(user_named(followed))
-end
-
-Then(/^I should see that (\d+) users are following him$/) do |num|
-  all('#followers .user').count.should == num.to_i
-end
-
-Then(/^I should see a link to the page of each of these Users:$/) do |table|
-  table.raw.flatten.each do |username|
-    user = user_named(username)
-    page.should have_link(username, href: user_path(user))
-  end
-end
-
-Given(/^the User has posted a message with the content "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-When(/^I go to the page for the User$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should see "(.*?)"$/) do |expected_text|
-  page.should have_content(expected_text)
+Then /^I should see the greeting "(.*?)"$/ do |expected_text|
+  find('.greeting').should have_content(expected_text)
 end
 
 Given(/^the User "(.*?)" has posted a message with the content "(.*?)"$/) do |username, content|
