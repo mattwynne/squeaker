@@ -1,5 +1,5 @@
 Given /^I'm not logged in$/ do
-  visit '/reset'
+  # Of course you're not logged in
 end
 
 When /^I visit the homepage$/ do
